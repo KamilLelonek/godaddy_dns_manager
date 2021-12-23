@@ -3,12 +3,13 @@ defmodule CertManager.GoDaddyAuthTest do
 
   alias CertManager.GoDaddyAuth
 
-  describe "create_record/1" do
-    setup do
-      domain = Application.get_env(:cert_manager, GoDaddyAuth)[:domain]
-      url = "https://api.godaddy.com/v1/domains/#{domain}/records"
+  setup do
+    {:ok, domain: Application.get_env(:cert_manager, GoDaddyAuth)[:domain]}
+  end
 
-      {:ok, url: url}
+  describe "create_record/1" do
+    setup %{domain: domain} do
+      {:ok, url: "https://api.godaddy.com/v1/domains/#{domain}/records"}
     end
 
     test "shoudl send PATCH request to GoDaddy with a specified data", %{url: url} do
@@ -32,6 +33,22 @@ defmodule CertManager.GoDaddyAuthTest do
       end)
 
       assert {:ok, %Tesla.Env{status: 401, body: ^body}} = GoDaddyAuth.create_record("RECORD")
+    end
+  end
+
+  describe "cleanup_record/0" do
+    setup %{domain: domain} do
+      {:ok, url: "https://api.godaddy.com/v1/domains/#{domain}/records/TXT/_acme-challenge"}
+    end
+
+    test "should clear the existing TXT record", %{url: url} do
+      body = ""
+
+      mock(fn %{method: :put, url: ^url} ->
+        %Tesla.Env{status: 200, body: body}
+      end)
+
+      assert {:ok, %Tesla.Env{body: ^body}} = GoDaddyAuth.cleanup_record()
     end
   end
 end

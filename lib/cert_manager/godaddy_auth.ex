@@ -8,8 +8,14 @@ defmodule CertManager.GoDaddyAuth do
     {"authorization", "sso-key #{config(:api_key)}:#{config(:api_secret)}"}
   ])
 
+  @record_name "_acme-challenge"
+  @record_type "TXT"
+
   def create_record(value),
     do: patch("domains/#{config(:domain)}/records", body(value))
+
+  def cleanup_record,
+    do: put("domains/#{config(:domain)}/records/#{@record_type}/#{@record_name}", body("..."))
 
   defp config(key), do: Application.get_env(:cert_manager, __MODULE__)[key]
 
@@ -17,8 +23,8 @@ defmodule CertManager.GoDaddyAuth do
     [
       %{
         "data" => data,
-        "name" => "_acme-challenge",
-        "type" => "TXT",
+        "name" => @record_name,
+        "type" => @record_type,
         "ttl" => 600
       }
     ]
