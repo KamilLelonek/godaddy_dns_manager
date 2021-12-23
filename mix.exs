@@ -26,7 +26,8 @@ defmodule CertManager.MixProject do
     [
       {:tesla, "~> 1.4"},
       {:hackney, "~> 1.18"},
-      {:jason, "~> 1.2"}
+      {:jason, "~> 1.2"},
+      {:credo, "~> 1.6", only: [:dev, :test], runtime: false}
     ]
   end
 end

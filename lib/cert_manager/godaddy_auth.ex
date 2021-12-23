@@ -1,4 +1,5 @@
 defmodule CertManager.GoDaddyAuth do
+  @moduledoc false
   use Tesla
 
   plug(Tesla.Middleware.BaseUrl, config(:api_url))

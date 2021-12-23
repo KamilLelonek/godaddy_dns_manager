@@ -1,4 +1,5 @@
 defmodule CertManager.TestCase do
+  @moduledoc false
   use ExUnit.CaseTemplate
 
   using do
