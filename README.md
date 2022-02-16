@@ -1,6 +1,8 @@
 # godaddy_dns_manager
 
-Automatic Certificate Manager based on GoDaddy, Google Cloud Platform and certbot integration.
+GoDaddy DNS manager.
+
+In particular it handles `_acme-challenge` value for TXT record.
 
 ## Usage
 
