@@ -4,7 +4,7 @@ Automatic Certificate Manager based on GoDaddy, Google Cloud Platform and certbo
 
 ## Usage
 
-### GoDaddyAuth
+### GodaddyDnsManager
 
 This module is used to interact with [GoDaddy API](https://developer.godaddy.com/doc/endpoint/domains).
 
