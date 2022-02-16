@@ -1,4 +1,4 @@
-defmodule CertManager.GoDaddyAuth do
+defmodule GodaddyDnsManager.GoDaddyAuth do
   @moduledoc false
   use Tesla
 
@@ -18,7 +18,7 @@ defmodule CertManager.GoDaddyAuth do
   def cleanup_record,
     do: put("domains/#{config(:domain)}/records/#{@record_type}/#{@record_name}", body("..."))
 
-  defp config(key), do: Application.get_env(:cert_manager, __MODULE__)[key]
+  defp config(key), do: Application.get_env(:godaddy_dns_manager, __MODULE__)[key]
 
   defp body(data) do
     [

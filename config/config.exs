@@ -2,8 +2,8 @@ import Config
 
 config :tesla, adapter: Tesla.Adapter.Hackney
 
-config :cert_manager, CertManager.GoDaddyAuth,
+config :godaddy_dns_manager, GodaddyDnsManager.GoDaddyAuth,
   api_url: "https://api.godaddy.com/v1/",
-  domain: "tyllpos.com"
+  domain: "example.com"
 
 import_config "#{config_env()}.exs"

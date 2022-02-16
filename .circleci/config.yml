@@ -44,4 +44,4 @@ jobs:
 
       - run: mix test
       - store_test_results:
-          path: _build/test/lib/cert_manager
+          path: _build/test/lib/godaddy_dns_manager

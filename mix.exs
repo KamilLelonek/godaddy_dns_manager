@@ -1,9 +1,9 @@
-defmodule CertManager.MixProject do
+defmodule GodaddyDnsManager.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :cert_manager,
+      app: :godaddy_dns_manager,
       version: "0.1.0",
       elixir: "~> 1.13",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -15,7 +15,7 @@ defmodule CertManager.MixProject do
   def application do
     [
       extra_applications: [:logger],
-      mod: {CertManager.Application, []}
+      mod: {GodaddyDnsManager.Application, []}
     ]
   end
 

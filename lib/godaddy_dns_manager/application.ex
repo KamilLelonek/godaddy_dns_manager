@@ -1,4 +1,4 @@
-defmodule CertManager.Application do
+defmodule GodaddyDnsManager.Application do
   @moduledoc false
 
   use Application
@@ -13,7 +13,7 @@ defmodule CertManager.Application do
   defp opts do
     [
       strategy: :one_for_one,
-      name: CertManager.Supervisor
+      name: GodaddyDnsManager.Supervisor
     ]
   end
 end

@@ -1,10 +1,10 @@
-defmodule CertManager.GoDaddyAuthTest do
-  use CertManager.TestCase, async: true
+defmodule GodaddyDnsManager.GoDaddyAuthTest do
+  use GodaddyDnsManager.TestCase, async: true
 
-  alias CertManager.GoDaddyAuth
+  alias GodaddyDnsManager.GoDaddyAuth
 
   setup do
-    {:ok, domain: Application.get_env(:cert_manager, GoDaddyAuth)[:domain]}
+    {:ok, domain: Application.get_env(:godaddy_dns_manager, GoDaddyAuth)[:domain]}
   end
 
   describe "create_record/1" do

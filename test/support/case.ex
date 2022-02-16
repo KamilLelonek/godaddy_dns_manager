@@ -1,4 +1,4 @@
-defmodule CertManager.TestCase do
+defmodule GodaddyDnsManager.TestCase do
   @moduledoc false
   use ExUnit.CaseTemplate
 
